@@ -1,92 +1,115 @@
-<p align="center">
-  <a>
+<div align="center">
     <img src="https://raw.githubusercontent.com/dw-0/kiauh/master/resources/screenshots/kiauh.png" alt="KIAUH logo" height="181">
-    <h1 align="center">Klipper Installation And Update Helper</h1>
-  </a>
-</p>
+    <h1 align="center" style="border-bottom:none!important;padding-bottom:none;">Klipper Installation And Update Helper</h1>
+</div>
 
 <p align="center">
   A handy installation script that makes installing Klipper (and more) a breeze!
 </p>
 
-<p align="center">
-  <a><img src="https://img.shields.io/github/license/dw-0/kiauh"></a>
-  <a><img src="https://img.shields.io/github/stars/dw-0/kiauh"></a>
-  <a><img src="https://img.shields.io/github/forks/dw-0/kiauh"></a>
-  <a><img src="https://img.shields.io/github/languages/top/dw-0/kiauh?logo=gnubash&logoColor=white"></a>
-  <a><img src="https://img.shields.io/github/v/tag/dw-0/kiauh"></a>
+<div align="center">
   <br />
-  <a><img src="https://img.shields.io/github/last-commit/dw-0/kiauh"></a>
-  <a><img src="https://img.shields.io/github/contributors/dw-0/kiauh"></a>
-</p>
+  <img src="https://img.shields.io/github/license/dw-0/kiauh">
+  <img src="https://img.shields.io/github/stars/dw-0/kiauh">
+  <img src="https://img.shields.io/github/forks/dw-0/kiauh">
+  <img src="https://img.shields.io/github/languages/top/dw-0/kiauh?logo=gnubash&logoColor=white">
+  <img src="https://img.shields.io/github/v/tag/dw-0/kiauh">
+  <br />
+  <img src="https://img.shields.io/github/last-commit/dw-0/kiauh">
+  <img src="https://img.shields.io/github/contributors/dw-0/kiauh">
+  <br />
+</div>
 
-<hr>
+---
 
 <h2 align="center">
   📄️ Instructions 📄
 </h2>
 
-### 📋 Prerequisites
-KIAUH is a script that assists you in installing Klipper on a Linux operating system that has
-already been flashed to your Raspberry Pi's (or other SBC's) SD card. As a result, you must ensure 
-that you have a functional Linux system on hand. `Raspberry Pi OS Lite (either 32bit or 64bit)` is a recommended Linux image 
-if you are using a Raspberry Pi. The [official Raspberry Pi Imager](https://www.raspberrypi.com/software/) 
-is the simplest way to flash an image like this to an SD card.
+### 🧵 Introduction
 
-* Once you have downloaded, installed and launched the Raspberry Pi Imager, 
-select `Choose OS -> Raspberry Pi OS (other)`: \
+KIAUH is a script that assists you in installing Klipper and popular tools or accessories for it on any Linux operating system.
+
+The most common way to make use of KIAUH, is for installing Klipper and other tools on a Raspberry Pi in a printer. However,
+any Linux-based system with a Bash terminal should support KIAUH.
+
+This page covers a variety of topics:
+
+1. Getting started (for Raspberry Pi)
+2. 
+
+### ⚒ Getting started
+
+There are a few requirements for using KIAUH:
+
+- An internet connection
+- Linux-distribution with Aptitude (`apt`)
+- (Other things)
+
+An easy way to check all these boxes, is running Raspberry Pi OS on a Raspberry Pi SBC (Single Board Computer)
+
+These instructions are for users that are starting out with a bare Raspberri Pi. They will guide you through installing a basic
+installation of Raspberry Pi OS on your Raspberry Pi. `Raspberry Pi OS Lite` (either 32bit or 64bit) is a recommended Linux image 
+for most Pi's. The official [Raspberry Pi Imager](https://www.raspberrypi.com/software/) is the simplest way to flash an officially
+supported image to your Raspberry Pi SD-card.
+
+Installation of Raspberry Pi OS is quick and easy:
+
+1. Once you have downloaded, installed and launched the Raspberry Pi Imager, select `Choose OS -> Raspberry Pi OS (other)`:  
 <p align="center">
-  <img src="https://raw.githubusercontent.com/dw-0/kiauh/master/resources/screenshots/rpi_imager1.png" alt="KIAUH logo" height="350">
+  <img src="https://raw.githubusercontent.com/dw-0/kiauh/master/resources/screenshots/rpi_imager1.png" alt="Imager: select Raspberry Pi OS (other)" height="350">
 </p>
 
-* Then select `Raspberry Pi OS Lite (32bit)` (or 64bit if you want to use that instead):
+2. Next, select `Raspberry Pi OS Lite (32bit)` (or 64bit if you want to use that instead):  
 <p align="center">
-  <img src="https://raw.githubusercontent.com/dw-0/kiauh/master/resources/screenshots/rpi_imager2.png" alt="KIAUH logo" height="350">
+  <img src="https://raw.githubusercontent.com/dw-0/kiauh/master/resources/screenshots/rpi_imager2.png" alt="Imager: Select Raspberry Pi OS Lite (choose 32/64 bit)" height="350">
 </p>
 
-* Back in the Raspberry Pi Imager's main menu, select the corresponding SD card to which 
-you want to flash the image.
+3. Back in the Raspberry Pi Imager's main menu, click **Choose storage** and select the corresponding SD card to which you want to flash the image.
+4. Click **Next**, and select **Edit Settings**. Make sure to enable SSH and configure Wi-Fi, as these are important for accessing your Pi.
+   The Raspberry Pi Imager [OS Customization docs](https://www.raspberrypi.com/documentation/computers/getting-started.html#advanced-options) have more information on the other options available. 
 
-* Make sure to go into the Advanced Option (the cog icon in the lower left corner of the main menu)
-and enable SSH and configure Wi-Fi.
+> [!TIP]
+> If you need more help using the Raspberry Pi Imager, please visit the [official documentation](https://www.raspberrypi.com/documentation/computers/getting-started.html#install-using-imager).
 
-* If you need more help for using the Raspberry Pi Imager, please visit the [official documentation](https://www.raspberrypi.com/documentation/computers/getting-started.html).
-
-These steps **only** apply if you are actually using a Raspberry Pi. In case you want 
-to use a different SBC (like an Orange Pi or any other Pi derivates), please look up on how to get an appropriate Linux image flashed 
-to the SD card before proceeding further (usually done with Balena Etcher in those cases). Also make sure that KIAUH will be able to run 
+These steps **only** apply if you are actually using a Raspberry Pi. In case you want to use a different SBC (like an Orange Pi or 
+any other Pi-derived board), please look up on how to get an appropriate Linux image flashed to your board before proceeding. 
+usually done with Balena Etcher in those cases). Also make sure that KIAUH will be able to run 
 and operate on the Linux Distribution you are going to flash. You likely will have the most success with
 distributions based on Debian 11 Bullseye. Read the notes further down below in this document.
 
 ### 💾 Download and use KIAUH
-**📢 Disclaimer: Usage of this script happens at your own risk!**
 
-* **Step 1:** \
-To download this script, it is necessary to have git installed. If you don't have git already installed, or if you are unsure, run the following command:
-```shell
-sudo apt-get update && sudo apt-get install git -y
-```
+> [!WARNING]
+> 📢 Disclaimer: Usage of this script happens at your own risk!
 
-* **Step 2:** \
-Once git is installed, use the following command to download KIAUH into your home-directory:
+* **Step 1:**  
+To download this script, it is necessary to have git installed. If you don't have Git already installed, or if you are unsure, run the following command:
 
-```shell
-cd ~ && git clone https://github.com/dw-0/kiauh.git
-```
+  ```shell
+  sudo apt update && sudo apt install git -y
+  ```
 
-* **Step 3:** \
+* **Step 2:**  
+Once Git is installed, use the following command to download KIAUH into your home-directory:
+
+  ```shell
+  cd ~ && git clone https://github.com/dw-0/kiauh.git
+  ```
+
+* **Step 3:**  
 Finally, start KIAUH by running the next command:
 
-```shell
-./kiauh/kiauh.sh
-```
+  ```shell
+  ./kiauh/kiauh.sh
+  ```
 
-* **Step 4:** \
+* **Step 4:**  
 You should now find yourself in the main menu of KIAUH. You will see several actions to choose from depending 
 on what you want to do. To choose an action, simply type the corresponding number into the "Perform action" 
 prompt and confirm by hitting ENTER.
 
-<hr>
+---
 
 <h2 align="center">❗ Notes ❗</h2>
 
@@ -97,7 +120,7 @@ prompt and confirm by hitting ENTER.
     - Reported to work on Armbian as well but not tested in detail
 - During the use of this script you will be asked for your sudo password. There are several functions involved which need sudo privileges.
 
-<hr>
+---
 
 <h2 align="center">🌐 Sources & Further Information</h2>
 
@@ -172,15 +195,15 @@ prompt and confirm by hitting ENTER.
 
 </table>
 
-<hr>
+---
 
 <h2 align="center">✨ Credits ✨</h2>
 
-* A big thank you to [lixxbox](https://github.com/lixxbox) for that awesome KIAUH-Logo!
-* Also, a big thank you to everyone who supported my work with a [Ko-fi](https://ko-fi.com/dw__0) !
-* Last but not least: Thank you to all contributors and members of the Klipper Community who like and share this project!
+- A big thank you to [lixxbox](https://github.com/lixxbox) for that awesome KIAUH-Logo!
+- Also, a big thank you to everyone who supported my work with a [Ko-fi](https://ko-fi.com/dw__0) !
+- Last but not least: Thank you to all contributors and members of the Klipper Community who like and share this project!
 
-<hr>
+---
 
 <h4 align="center">A special thank you to JetBrains for sponsoring this project with their incredible software!</h4>
 <p align="center">
